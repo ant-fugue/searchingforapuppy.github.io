@@ -17,7 +17,7 @@
         background-color: #eee;
       }
       .wrapper {
-        max-width: 400px;
+        align-items: baseline;
         margin: 2em auto;
       }
 
@@ -523,21 +523,15 @@
               <div className="wrapper">
                 <input
                   className="col1"
-                  style={{ alignItems: "center" }}
                   onChange={this.handleInput}
                   placeholder="Enter method name"
                 />{" "}
                 <input
                   className="col2"
-                  style={{ alignItems: "center" }}
                   onChange={this.handleInput2}
                   placeholder="Enter arg"
                 />{" "}
-                <button
-                  className="col3"
-                  style={{ alignItems: "center" }}
-                  onClick={this.logValue}
-                >
+                <button className="col3" onClick={this.logValue}>
                   Log value
                 </button>
               </div>
