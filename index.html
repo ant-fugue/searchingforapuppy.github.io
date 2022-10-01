@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <style>
       body {
-        font: 10em Helvetica, Arial, sans-serif;
+        font: 2em Helvetica, Arial, sans-serif;
         margin: 20px;
         padding: 0;
         background-color: #eee;
@@ -510,28 +510,38 @@
           alert(Queen[func](parseInt(val, 10)));
         };
 
+        methodList = () => {
+          const methods = Object.keys(Queen);
+          console.log(methods);
+          const methodItems = methods.map((method) => <li>{method}</li>);
+          return <ul>{methodItems}</ul>;
+        };
+
         render() {
           return (
-            <div className="wrapper">
-              <input
-                className="col1"
-                style={{ alignItems: "center" }}
-                onChange={this.handleInput}
-                placeholder="Enter method name"
-              />{" "}
-              <input
-                className="col2"
-                style={{ alignItems: "center" }}
-                onChange={this.handleInput2}
-                placeholder="Enter arg"
-              />{" "}
-              <button
-                className="col3"
-                style={{ alignItems: "center" }}
-                onClick={this.logValue}
-              >
-                Log value
-              </button>
+            <div>
+              <div className="wrapper">
+                <input
+                  className="col1"
+                  style={{ alignItems: "center" }}
+                  onChange={this.handleInput}
+                  placeholder="Enter method name"
+                />{" "}
+                <input
+                  className="col2"
+                  style={{ alignItems: "center" }}
+                  onChange={this.handleInput2}
+                  placeholder="Enter arg"
+                />{" "}
+                <button
+                  className="col3"
+                  style={{ alignItems: "center" }}
+                  onClick={this.logValue}
+                >
+                  Log value
+                </button>
+              </div>
+              <div>{this.methodList()}</div>
             </div>
           );
         }
