@@ -3,11 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello World</title>
+
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body {
+        font: 10em Helvetica, Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        background-color: #eee;
+      }
+      .wrapper {
+        max-width: 960px;
+        margin: 2em auto;
+      }
+
+      .col1,
+      .col2 {
+        background-color: #fff;
+      }
+
+      @media screen and (min-width: 600px) {
+        .wrapper {
+          display: flex;
+        }
+
+        .col1 {
+          flex: 1;
+        }
+
+        .col2 {
+          flex: 2;
+        }
+        .col3 {
+          flex: 3;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
@@ -476,13 +511,26 @@
 
         render() {
           return (
-            <div>
+            <div className="wrapper">
               <input
+                className="col1"
+                style={{ alignItems: "center" }}
                 onChange={this.handleInput}
                 placeholder="Enter method name"
               />{" "}
-              <input onChange={this.handleInput2} placeholder="Enter arg" />{" "}
-              <button onClick={this.logValue}>Log value</button>
+              <input
+                className="col2"
+                style={{ alignItems: "center" }}
+                onChange={this.handleInput2}
+                placeholder="Enter arg"
+              />{" "}
+              <button
+                className="col3"
+                style={{ alignItems: "center" }}
+                onClick={this.logValue}
+              >
+                Log value
+              </button>
             </div>
           );
         }
