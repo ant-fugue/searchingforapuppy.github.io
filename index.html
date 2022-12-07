@@ -499,6 +499,7 @@
         state = {
           name: "",
           value: "",
+          calculatedValue: "",
         };
 
         handleInput = (event) => {
@@ -511,7 +512,7 @@
         logValue = () => {
           const func = this.state.name;
           const val = this.state.value;
-          alert(Queen[func](parseInt(val, 10)));
+          this.setState({ calculatedValue: Queen[func](parseInt(val, 10)) });
         };
 
         methodList = () => {
@@ -538,6 +539,7 @@
                 <button className="col3" onClick={this.logValue}>
                   Log value
                 </button>
+                <div> {this.state.calculatedValue.toString()}</div>
               </div>
             </div>
           );
