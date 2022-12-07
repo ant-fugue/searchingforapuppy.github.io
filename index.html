@@ -25,6 +25,11 @@
         margin: 2em auto;
       }
 
+      .box {
+        inline-size: 80%;
+        overflow-wrap: break-word;
+      }
+
       .col1,
       .col2 {
         background-color: #fff;
@@ -543,7 +548,9 @@
                 <button className="col3" onClick={this.logValue}>
                   Log value
                 </button>
-                <div> {this.state.calculatedValue.toString()}</div>
+                <div className="box">
+                  {this.state.calculatedValue.toString()}
+                </div>
               </div>
             </div>
           );
