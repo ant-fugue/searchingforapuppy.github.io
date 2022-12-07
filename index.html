@@ -521,11 +521,13 @@
           return (
             <div>
               <div className="wrapper">
-                <input
+                <select
                   className="col1"
+                  value={this.state.value}
                   onChange={this.handleInput}
-                  placeholder="Enter method name"
-                />{" "}
+                >
+                  <option value="grapefruit">Grapefruit</option>
+                </select>
                 <input
                   className="col2"
                   onChange={this.handleInput2}
@@ -535,7 +537,7 @@
                   Log value
                 </button>
               </div>
-              <div>{this.methodList()}</div>
+              <select>{this.methodList()}</select>
             </div>
           );
         }
