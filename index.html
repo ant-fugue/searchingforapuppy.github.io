@@ -492,6 +492,10 @@
       };
 
       class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.methods = Object.keys(Queen);
+        }
         state = {
           name: "",
           value: "",
@@ -511,22 +515,20 @@
         };
 
         methodList = () => {
-          const methods = Object.keys(Queen);
-          console.log(methods);
-          const methodItems = methods.map((method) => <li>{method}</li>);
-          return <ul>{methodItems}</ul>;
+          const methodItems = this.methods.map((method, i) => (
+            <option key={i} value={method}>
+              {method}
+            </option>
+          ));
+          return methodItems;
         };
 
         render() {
           return (
             <div>
               <div className="wrapper">
-                <select
-                  className="col1"
-                  value={this.state.value}
-                  onChange={this.handleInput}
-                >
-                  <option value="grapefruit">Grapefruit</option>
+                <select className="col1" onChange={this.handleInput}>
+                  {this.methodList()}
                 </select>
                 <input
                   className="col2"
@@ -537,7 +539,6 @@
                   Log value
                 </button>
               </div>
-              <select>{this.methodList()}</select>
             </div>
           );
         }
